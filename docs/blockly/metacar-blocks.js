@@ -10,26 +10,14 @@ Blockly.Blocks['forward'] = {
   }
 };
 
-Blockly.Blocks['turn_left'] = {
+Blockly.Blocks['turn'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("turn left");
+        .appendField(new Blockly.FieldDropdown([["turn left","left"], ["turn right","right"]]), "turn_direction");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("Turn 90 degrees to the left.");
- this.setHelpUrl("");
-  }
-};
-
-Blockly.Blocks['turn_right'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("turn right");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
- this.setTooltip("Turn 90 degrees to the right.");
+ this.setTooltip("");
  this.setHelpUrl("");
   }
 };
@@ -68,6 +56,22 @@ Blockly.Blocks['sleep'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("Don't do this when you're driving.");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['lidar'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("there is")
+        .appendField(new Blockly.FieldDropdown([["a car","car"], ["a road","road"], ["terrain","terrain"]]), "obstacle_type")
+        .appendField(new Blockly.FieldDropdown([["0m","0m"], ["1m","1m"], ["2m","2m"], ["3m","3m"], ["4m","4m"]]), "front_distance")
+        .appendField("in front,")
+        .appendField(new Blockly.FieldDropdown([["0m","0m"], ["1m","1m"], ["2m","2m"]]), "lateral_distance")
+        .appendField(new Blockly.FieldDropdown([["to the left","left"], ["to the right","right"]]), "lateral_direction");
+    this.setOutput(true, "Boolean");
+    this.setColour(230);
+ this.setTooltip("");
  this.setHelpUrl("");
   }
 };

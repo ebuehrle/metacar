@@ -1,3 +1,19 @@
 body {
     display: flex;
 }
+
+.execution .run {
+    display: block;
+}
+
+.execution .stop {
+    display: none;
+}
+
+.execution.running .run {
+    display: none;
+}
+
+.execution.running .stop {
+    display: block;
+}

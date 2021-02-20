@@ -11,7 +11,11 @@
         </div>
         <div>
             <div id="blockly" style="height: 480px; width: 600px;"></div>
-            <button id="run">Run</button>
+            <div class="execution">
+                <button class="run">Run</button>
+                <button class="stop">Stop</button>
+                <button class="reset">Reset</button>
+            </div>
         </div>
 
         <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
@@ -375,10 +379,10 @@
             <category name="Metacar">
               <block type="forward"></block>
               <block type="backward"></block>
-              <block type="turn_left"></block>
-              <block type="turn_right"></block>
+              <block type="turn"></block>
               <block type="stop"></block>
               <block type="sleep"></block>
+              <block type="lidar"></block>
             </category>
         </xml>
 
@@ -394,6 +398,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/blockly/4.20201217.0/msg/en.min.js" integrity="sha512-CcZSuOhlsHqLLiF3M8hvMc8aWqTE36GEaE/cP7HMNOSZytGihNqhQxFzkXigYQp4psZWCVjEXY2oYFN4+vLAYg==" crossorigin="anonymous"></script>
         <script src="blockly/metacar-blocks.js"></script>
         <script src="blockly/metacar-codegen.js"></script>
+        <script src="blockly/metacar-api.js"></script>
 
         <script src="js/index.js"></script>
     </body>
