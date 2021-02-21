@@ -1,6 +1,12 @@
 const env = new metacar.env('metacar', metacar.level.level3);
 env.load();
 
+window.addEventListener('keydown', e => {
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+    }
+});
+
 let workspace = Blockly.inject('blockly', {
     toolbox: document.getElementById('toolbox')
 });
