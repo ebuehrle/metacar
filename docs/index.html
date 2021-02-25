@@ -3,20 +3,30 @@
     <head>
         <meta charset="utf-8">
         <title>Metacar</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
-        <div>
-            <div id="metacar"></div>
-        </div>
-        <div>
-            <div id="blockly" style="height: 480px; width: 600px;"></div>
-            <div class="execution">
-                <button class="run">Run</button>
-                <button class="stop">Stop</button>
-                <button class="reset">Reset</button>
-            </div>
-        </div>
+        <header>
+          <h1>Bloblocar</h1>
+        </header>
+        <main>
+          <div>
+              <div class="shadow" id="metacar"></div>
+              <div class="execution">
+                  <button class="run">▶</button>
+                  <button class="stop">■</button>
+                  <button class="reset">↺</button>
+              </div>
+          </div>
+          <div>
+              <div class="shadow" id="blockly"></div>
+          </div>
+        </main>
+        <footer>
+          Girls' Day 2021 am MRT
+        </footer>
 
         <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
             <category name="Logic" colour="#5b80a5">

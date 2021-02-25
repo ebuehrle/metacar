@@ -25,7 +25,9 @@ document.querySelector('.run').addEventListener('click', () => {
             document.querySelector('.execution').classList.add('running');
             try {
                 if (codeInterpreter && codeInterpreter.step()) {
-                    setTimeout(runCode, codeInterpreter['stepTimeout'] || 1);
+                    const stepTimeout = codeInterpreter['stepTimeout'] || 1;
+                    codeInterpreter['stepTimeout'] = 0;
+                    setTimeout(runCode, stepTimeout);
                     return;
                 }
             } catch (e) {
