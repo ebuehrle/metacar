@@ -11,6 +11,20 @@ let workspace = Blockly.inject('blockly', {
     toolbox: document.getElementById('toolbox')
 });
 
+workspace.addChangeListener(() => {
+    const xml = Blockly.Xml.workspaceToDom(workspace);
+    const text = Blockly.Xml.domToText(xml);
+    localStorage.setItem('workspaceContents', text);
+});
+
+(function loadWorkspace() {
+    if ('workspaceContents' in localStorage) {
+        const text = localStorage.getItem('workspaceContents');
+        const xml = Blockly.Xml.textToDom(text);
+        Blockly.Xml.domToWorkspace(xml, workspace);
+    }
+})();
+
 let codeInterpreter;
 
 document.querySelector('.run').addEventListener('click', () => {
@@ -25,7 +39,7 @@ document.querySelector('.run').addEventListener('click', () => {
             document.querySelector('.execution').classList.add('running');
             try {
                 if (codeInterpreter && codeInterpreter.step()) {
-                    const stepTimeout = codeInterpreter['stepTimeout'] || 1;
+                    const stepTimeout = codeInterpreter['stepTimeout'] || 0;
                     codeInterpreter['stepTimeout'] = 0;
                     setTimeout(runCode, stepTimeout);
                     return;
