@@ -3,10 +3,18 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'DotGothic16', sans-serif;
     background-color: #000149;
     color: mediumaquamarine;
+    min-height: 100%;
+    
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -15,10 +23,19 @@ header {
 }
 
 main {
-    display: flex;
     overflow: auto;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main .center {
     padding: 10px;
+    margin: auto;
     color: black; /* Blockly UI font color */
+    display: flex;
 }
 
 #metacar {
@@ -76,4 +93,5 @@ main {
 
 footer {
     text-align: center;
+    margin-bottom: 20px;
 }
