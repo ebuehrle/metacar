@@ -46,11 +46,11 @@ Blockly.JavaScript['lidar'] = function(block) {
   let idx1;
   if (dropdown_lateral_direction === 'left') {
     idx1 = {
-      '0m': 2, '1m': 1, '3m': 0,
+      '0m': 2, '1m': 1, '2m': 0,
     }[dropdown_lateral_distance];
   } else { // dropdown_lateral_direction == 'right'
     idx1 = {
-      '0m': 2, '1m': 3, '3m': 4,
+      '0m': 2, '1m': 3, '2m': 4,
     }[dropdown_lateral_distance];
   }
 
