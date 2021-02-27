@@ -29,6 +29,7 @@ let codeInterpreter;
 
 document.querySelector('.run').addEventListener('click', () => {
     Blockly.JavaScript.addReservedWords('code', 'env');
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = 'sleep(1);\n';
     const code = Blockly.JavaScript.workspaceToCode(workspace);
 
     console.log(code);
@@ -38,11 +39,13 @@ document.querySelector('.run').addEventListener('click', () => {
         (function runCode() {
             document.querySelector('.execution').classList.add('running');
             try {
-                if (codeInterpreter && codeInterpreter.step()) {
+                while (codeInterpreter && codeInterpreter.step()) {
                     const stepTimeout = codeInterpreter['stepTimeout'] || 0;
                     codeInterpreter['stepTimeout'] = 0;
-                    setTimeout(runCode, stepTimeout);
-                    return;
+                    if (stepTimeout) {
+                        setTimeout(runCode, stepTimeout);
+                        return;
+                    }
                 }
             } catch (e) {
                 alert(e);

@@ -50,9 +50,15 @@ function initApi(env, interpreter, globalObject) {
     
     interpreter.setProperty(
         globalObject, 'lidar',
-        interpreter.createNativeFunction((x, y) =>
-            env.getState().lidar[x][y]
-        )
+        interpreter.createNativeFunction((x, y) => {
+            // FIXME: This should wait for the environment to take the next step
+            // TODO:
+            // - write a code runner function that understands the difference
+            //   between a paused and a halted program
+            // - pause the program until the next step (env.loop, env.loopCallback)
+            env.level.agent.motion.detectInteractions(true, true);
+            return env.getState().lidar[x][y];
+        })
     );
     
     // interpreter.setProperty(
