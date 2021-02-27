@@ -65,8 +65,7 @@ Blockly.Blocks['lidar'] = {
     this.appendDummyInput()
         .appendField("da ist")
         .appendField(new Blockly.FieldDropdown([["ein Auto","car"], ["eine Straße","road"], ["etwas anderes","terrain"]]), "obstacle_type")
-        .appendField(new Blockly.FieldDropdown([["0m","0m"], ["1m","1m"], ["2m","2m"], ["3m","3m"], ["4m","4m"]]), "front_distance")
-        .appendField("vor mir,")
+        .appendField(new Blockly.FieldDropdown([["2m hinter mir","0m"], ["1m hinter mir","1m"], ["0m vor mir","2m"], ["1m vor mir","3m"], ["2m vor mir","4m"]]), "front_distance")
         .appendField(new Blockly.FieldDropdown([["0m","0m"], ["1m","1m"], ["2m","2m"]]), "lateral_distance")
         .appendField(new Blockly.FieldDropdown([["links von mir","left"], ["rechts von mir","right"]]), "lateral_direction");
     this.setOutput(true, "Boolean");

@@ -1,4 +1,5 @@
 const env = new metacar.env('metacar', metacar.level.level3);
+env.setAgentLidar({pts: 5, width: 4, height: 5, pos: -1.5});
 env.load();
 
 window.addEventListener('keydown', e => {
