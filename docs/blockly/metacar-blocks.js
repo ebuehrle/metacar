@@ -41,7 +41,7 @@ Blockly.Blocks['stop'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("Stehen bleiben.");
+ this.setTooltip("Stehenbleiben.");
  this.setHelpUrl("");
   }
 };
