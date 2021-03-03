@@ -18,6 +18,7 @@ html {
 
 .overflow {
     overflow: auto;
+    display: flex;
 }
 
 .center {
