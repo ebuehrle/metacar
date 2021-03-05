@@ -49,10 +49,10 @@ p {
     margin: 1em;
 }
 
-img {
+img, video {
     display: block;
     margin: 3em auto;
-    max-width: 15em;
+    max-width: 100%;
 }
 
 #metacar {
